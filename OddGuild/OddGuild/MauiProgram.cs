@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using OddGuild.Views;
+using OddGuild.ViewModels;
 
 namespace OddGuild;
 
@@ -18,7 +20,13 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+	// Register your ViewModels (The Brains)
+        builder.Services.AddTransient<MainViewModel>();
+        builder.Services.AddTransient<QuestViewModel>();
 
+        // Register your Views (The Faces)
+        builder.Services.AddTransient<MainPage>();
+        builder.Services.AddTransient<QuestPage>();
 		return builder.Build();
 	}
 }
