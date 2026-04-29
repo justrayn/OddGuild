@@ -515,3 +515,11 @@ D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\obj\Debug\net9.0-window
 D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Mvvm.dll
+D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\PixelifySans-Bold.ttf
+D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\PixelifySans-Medium.ttf
+D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\PixelifySans-Regular.ttf
+D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\PixelifySans-SemiBold.ttf
+D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\f\PixelifySans-Bold.ttf
+D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\f\PixelifySans-Medium.ttf
+D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\f\PixelifySans-Regular.ttf
+D:\Projects\mobile dev things\OddGuild\OddGuild\OddGuild\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\f\PixelifySans-SemiBold.ttf

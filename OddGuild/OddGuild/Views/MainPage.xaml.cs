@@ -12,7 +12,7 @@ public partial class MainPage : ContentPage
 		BindingContext = viewModel;
 	}
 
-	private void OnCounterClicked(object? sender, EventArgs e)
+	private void OnCounterClicked(object? sender, EventArgs e) 
 	{
 		count++;
 

@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OddGuild")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+d868e4a757cdd592980d63b2dba2df8bf1c3ca78")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+2367e7d977740426dc68db18032f401d711ba065")]
 [assembly: System.Reflection.AssemblyProductAttribute("OddGuild")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OddGuild")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
