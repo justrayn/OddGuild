@@ -1,0 +1,35 @@
+﻿using Microsoft.Extensions.Logging;
+using OddGuild.Views;
+using OddGuild.ViewModels;
+
+namespace OddGuild;
+
+public static class MauiProgram
+{
+	public static MauiApp CreateMauiApp()
+	{
+		var builder = MauiApp.CreateBuilder();
+		builder
+			.UseMauiApp<App>()
+			.ConfigureFonts(fonts =>
+			{
+				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+
+				fonts.AddFont("PixelifySans-Regular.ttf", "PixelifyRegular");
+    			fonts.AddFont("PixelifySans-Bold.ttf", "PixelifyBold");
+			});
+
+#if DEBUG
+		builder.Logging.AddDebug();
+#endif
+	// Register your ViewModels (The Brains)
+        builder.Services.AddTransient<MainViewModel>();
+        builder.Services.AddTransient<QuestViewModel>();
+
+        // Register your Views (The Faces)
+        builder.Services.AddTransient<MainPage>();
+        builder.Services.AddTransient<QuestPage>();
+		return builder.Build();
+	}
+}
