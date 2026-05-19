@@ -1,4 +1,4 @@
-namespace OddGuild.Views; // <-- This must be exact!
+namespace OddGuild.Views;
 
 public partial class QuestPage : ContentPage
 {

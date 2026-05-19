@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:OddGuild.ViewModels"
              x:Class="OddGuild.Views.QuestPage"
              Title="Quests"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="#1C1512"> 
+             BackgroundColor="#1C1512">
 
     <ContentPage.BindingContext>
         <viewmodels:QuestViewModel />
     </ContentPage.BindingContext>
+    
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="PixelifyBold" />
@@ -18,147 +19,222 @@
             <Setter Property="FontFamily" Value="PixelifyBold" />
         </Style>
     </ContentPage.Resources>
-    <Grid RowDefinitions="Auto, *">
-
-        <Grid Grid.Row="0" BackgroundColor="#2D1E16" Padding="15, 20, 15, 25">
-            <Grid HorizontalOptions="Start" VerticalOptions="Start">
-                <BoxView WidthRequest="20" HeightRequest="3" Color="#C45A1D" HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="2"/>
-                <BoxView WidthRequest="3" HeightRequest="20" Color="#C45A1D" HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="2"/>
-            </Grid>
-
-            <Grid HorizontalOptions="End" VerticalOptions="Start">
-                <BoxView WidthRequest="20" HeightRequest="3" Color="#C45A1D" HorizontalOptions="End" VerticalOptions="Start" CornerRadius="2"/>
-                <BoxView WidthRequest="3" HeightRequest="20" Color="#C45A1D" HorizontalOptions="End" VerticalOptions="Start" CornerRadius="2"/>
-            </Grid>
-
-            <VerticalStackLayout HorizontalOptions="Center" Spacing="0">
-                <Label Text="ODD" TextColor="#D3A052" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" CharacterSpacing="2" />
-                <Label Text="GUILD" TextColor="#D3A052" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" CharacterSpacing="2" />
-                
-                <Grid ColumnDefinitions="*, Auto, *" ColumnSpacing="15" Margin="0,15,0,0">
-                    <BoxView Grid.Column="0" HeightRequest="2" Color="#C45A1D" VerticalOptions="Center" />
-                    <Label Grid.Column="1" Text="TAGLINE" TextColor="#C45A1D" FontSize="14" FontAttributes="Bold" CharacterSpacing="1" />
-                    <BoxView Grid.Column="2" HeightRequest="2" Color="#C45A1D" VerticalOptions="Center" />
-                </Grid>
-            </VerticalStackLayout>
-        </Grid>
-
-
-        <Grid Grid.Row="1" RowDefinitions="Auto, Auto, *" Padding="15, 20, 15, 0">
+    
+    <Grid>
+        <Grid RowDefinitions="Auto, *" ZIndex="0">
             
-            <Border Grid.Row="0" 
-                    BackgroundColor="#2A1F1A" 
-                    Stroke="#C45A1D" 
-                    StrokeThickness="1"
-                    Padding="15" 
-                    Margin="0,0,0,15">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10" />
-                </Border.StrokeShape>
+            <Grid Grid.Row="0" BackgroundColor="#2D1E16" Padding="20, 25, 20, 25">
+                
+                <Grid HorizontalOptions="Start" VerticalOptions="Start">
+                    <BoxView WidthRequest="22" HeightRequest="3" Color="#7A4B29" CornerRadius="1.5" HorizontalOptions="Start" VerticalOptions="Start"/>
+                    <BoxView WidthRequest="3" HeightRequest="22" Color="#7A4B29" CornerRadius="1.5" HorizontalOptions="Start" VerticalOptions="Start"/>
+                </Grid>
+
+                <Grid HorizontalOptions="End" VerticalOptions="Start">
+                    <BoxView WidthRequest="22" HeightRequest="3" Color="#7A4B29" CornerRadius="1.5" HorizontalOptions="End" VerticalOptions="Start"/>
+                    <BoxView WidthRequest="3" HeightRequest="22" Color="#7A4B29" CornerRadius="1.5" HorizontalOptions="End" VerticalOptions="Start"/>
+                </Grid>
+
+                <VerticalStackLayout HorizontalOptions="Center" Spacing="-5" VerticalOptions="Center">
+                    <Label Text="ODD" TextColor="#D3A052" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" CharacterSpacing="2" />
+                    <Label Text="GUILD" TextColor="#D3A052" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" CharacterSpacing="2" />
+                    
+                    <Grid ColumnDefinitions="Auto, Auto, Auto" ColumnSpacing="15" Margin="0,15,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                        <BoxView Grid.Column="0" WidthRequest="60" HeightRequest="2" Color="#C45A1D" VerticalOptions="Center" />
+                        <Label Grid.Column="1" Text="TAGLINE" TextColor="#C45A1D" FontSize="12" FontAttributes="Bold" CharacterSpacing="1" VerticalOptions="Center" Margin="0,0,0,2"/>
+                        <BoxView Grid.Column="2" WidthRequest="60" HeightRequest="2" Color="#C45A1D" VerticalOptions="Center" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid Grid.Row="1" Padding="15, 20, 15, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="0" Margin="0,0,0,15">
+                    <Border BackgroundColor="#2D1E16" Stroke="#C45A1D" StrokeThickness="1" Padding="15,20" Margin="0,0,10,10">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="10" /></Border.StrokeShape>
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="SEARCH SCROLL" TextColor="#C45A1D" FontAttributes="Bold" FontSize="12" VerticalOptions="Center" Margin="10,0"/>
+                            <Border BackgroundColor="#E6DCC3" Stroke="Transparent" Padding="5,0">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="5" /></Border.StrokeShape>
+                                <SearchBar Placeholder="Keywords..." Text="{Binding SearchQuery}" CancelButtonColor="Black" TextColor="Black" PlaceholderColor="DimGray"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Border>
+                    
+                    <Border ZIndex="1" HorizontalOptions="End" VerticalOptions="End" WidthRequest="55" HeightRequest="55" BackgroundColor="#2D1E16" Stroke="#C45A1D" StrokeThickness="2">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ToggleFormCommand}" />
+                        </Border.GestureRecognizers>
+                        <Border.StrokeShape><RoundRectangle CornerRadius="27.5" /></Border.StrokeShape>
+                        <Grid>
+                            <BoxView WidthRequest="20" HeightRequest="3" Color="#C45A1D" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <BoxView WidthRequest="3" HeightRequest="20" Color="#C45A1D" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Row="1" ColumnDefinitions="Auto, Auto, Auto, *" ColumnSpacing="15" Margin="0,15,0,15">
+                    <VerticalStackLayout Grid.Column="0" Spacing="4">
+                        <VerticalStackLayout.GestureRecognizers><TapGestureRecognizer Command="{Binding ShowAllQuestsCommand}" /></VerticalStackLayout.GestureRecognizers>
+                        <Label Text="all quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsAllTabActive}" Value="True"><Setter Property="TextColor" Value="#C45A1D" /></DataTrigger>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsAllTabActive}" Value="False"><Setter Property="TextColor" Value="#8C8371" /></DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <BoxView HeightRequest="2" Color="#C45A1D" CornerRadius="1" IsVisible="{Binding IsAllTabActive}" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="1" Spacing="4">
+                        <VerticalStackLayout.GestureRecognizers><TapGestureRecognizer Command="{Binding ShowGeneralQuestsCommand}" /></VerticalStackLayout.GestureRecognizers>
+                        <Label Text="general quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsGeneralTabActive}" Value="True"><Setter Property="TextColor" Value="#C45A1D" /></DataTrigger>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsGeneralTabActive}" Value="False"><Setter Property="TextColor" Value="#8C8371" /></DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <BoxView HeightRequest="2" Color="#C45A1D" CornerRadius="1" IsVisible="{Binding IsGeneralTabActive}" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="2" Spacing="4">
+                        <VerticalStackLayout.GestureRecognizers><TapGestureRecognizer Command="{Binding ShowMyQuestsCommand}" /></VerticalStackLayout.GestureRecognizers>
+                        <Label Text="my quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsMyTabActive}" Value="True"><Setter Property="TextColor" Value="#C45A1D" /></DataTrigger>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsMyTabActive}" Value="False"><Setter Property="TextColor" Value="#8C8371" /></DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <BoxView HeightRequest="2" Color="#C45A1D" CornerRadius="1" IsVisible="{Binding IsMyTabActive}" />
+                    </VerticalStackLayout>
+                    <BoxView Grid.ColumnSpan="4" HeightRequest="1" Color="#8C8371" Opacity="0.3" VerticalOptions="End" />
+                </Grid>
+
+                <CollectionView Grid.Row="2" ItemsSource="{Binding AvailableQuests}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="15" VerticalItemSpacing="15" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BackgroundColor="#DAC7A7" Stroke="Transparent" Padding="12">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="2" /></Border.StrokeShape>
+                                <Border.Shadow><Shadow Brush="Black" Offset="0,2" Opacity="0.2" /></Border.Shadow>
+                                
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:QuestViewModel}}, Path=SelectQuestCommand}" CommandParameter="{Binding .}" />
+                                </Border.GestureRecognizers>
+                                
+                                <VerticalStackLayout Spacing="5">
+                                    <Grid ColumnDefinitions="*, Auto">
+                                        <Label Grid.Column="0" Text="ODD GUILD" TextColor="#8C8371" FontSize="10" FontAttributes="Bold" />
+                                        <Label Grid.Column="1" Text="{Binding Id, StringFormat='NO. {0}'}" TextColor="#8C8371" FontSize="10" />
+                                    </Grid>
+                                    <BoxView HeightRequest="1" Color="#8C8371" Opacity="0.3" Margin="0,5" />
+                                    <Label Text="{Binding Type}" TextColor="#4A3F35" FontSize="12" FontAttributes="Bold" />
+                                    <Label Text="{Binding Title}" TextColor="#A63A24" FontSize="14" FontAttributes="Bold" />
+                                    <Label Text="☕" FontSize="30" HorizontalOptions="Center" Margin="0,10" />
+                                    <Label Text="{Binding Description}" TextColor="#4A3F35" FontSize="10" FontAttributes="Italic" LineBreakMode="WordWrap" MaxLines="2"/>
+                                    <BoxView HeightRequest="1" Color="#8C8371" Opacity="0.3" Margin="0,5" />
+                                    <Label Text="{Binding Bounty, StringFormat='{0} G'}" TextColor="#2A1F1A" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" />
+                                    <Label Text="💀" FontSize="12" HorizontalOptions="Center" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Grid>
+        
+        <Grid ZIndex="10" IsVisible="{Binding IsFormVisible}" BackgroundColor="#A6000000">
+            <Grid.GestureRecognizers><TapGestureRecognizer /></Grid.GestureRecognizers>
+            
+            <Border WidthRequest="320" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#E6DCC3" Stroke="#C45A1D" StrokeThickness="2" Padding="20">
+                <Border.StrokeShape><RoundRectangle CornerRadius="5" /></Border.StrokeShape>
+                <Border.Shadow><Shadow Brush="Black" Offset="0,4" Opacity="0.6" /></Border.Shadow>
                 
                 <VerticalStackLayout Spacing="10">
-                    
-                    <Grid ColumnDefinitions="*, Auto">
-                        <Label Grid.Column="0" Text="SEARCH SCROLL" TextColor="#C45A1D" FontAttributes="Bold" FontSize="12" VerticalOptions="Center" />
-                        
-                        <Border Grid.Column="1" 
-                                BackgroundColor="#C45A1D" 
-                                Stroke="Transparent"
-                                Padding="8,0" 
-                                HeightRequest="24"
-                                VerticalOptions="Center">
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="4" />
-                            </Border.StrokeShape>
-                            <Border.Shadow>
-                                <Shadow Brush="Black" Offset="0,2" Opacity="0.3" />
-                            </Border.Shadow>
-                            
-                            <Border.GestureRecognizers>
-                                <TapGestureRecognizer />
-                            </Border.GestureRecognizers>
-
-                            <HorizontalStackLayout Spacing="3" VerticalOptions="Center" HorizontalOptions="Center">
-                                <Label Text="+" FontSize="16" FontAttributes="Bold" TextColor="#2D1E16" VerticalTextAlignment="Center" Margin="0,-2,0,0" />
-                                <Label Text="POST QUEST" FontSize="10" FontAttributes="Bold" TextColor="#2D1E16" VerticalTextAlignment="Center" />
-                            </HorizontalStackLayout>
-                        </Border>
+                    <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,10">
+                        <Label Grid.Column="0" Text="GUILD DECREE" TextColor="#D3A052" FontAttributes="Bold" FontSize="14" HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Button Grid.Column="1" Text="✕" Command="{Binding ToggleFormCommand}" BackgroundColor="Transparent" TextColor="#A63A24" FontSize="16" FontAttributes="Bold" CornerRadius="10" HeightRequest="30" WidthRequest="30" Padding="0" VerticalOptions="Center"/>
                     </Grid>
                     
-                    <Border BackgroundColor="#E6DCC3" Stroke="Transparent" Padding="5,0">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="5" />
-                        </Border.StrokeShape>
-                        <SearchBar Placeholder="Keywords..." 
-                                   Text="{Binding SearchQuery}" 
-                                   CancelButtonColor="Black" 
-                                   TextColor="Black" 
-                                   PlaceholderColor="DimGray"/>
+                    <Label Text="NEW QUEST PROPOSAL" TextColor="#2A1F1A" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" Margin="0,5,0,5"/>
+                    <BoxView HeightRequest="1" Color="#C45A1D" Opacity="0.3" Margin="0,0,0,10" />
+                    
+                    <Label Text="Decree Title:" TextColor="#8C8371" FontSize="10" FontAttributes="Bold" Margin="5,0"/>
+                    <Border BackgroundColor="#BF1C1512" Stroke="#BF1C1512" Padding="5,0"><Border.StrokeShape><RoundRectangle CornerRadius="3"/></Border.StrokeShape>
+                        <Entry Placeholder="The Task Ahead" Text="{Binding NewQuestTitle}" TextColor="#D3A052" PlaceholderColor="DimGray" Margin="5,0"/>
                     </Border>
 
-                    <Grid ColumnDefinitions="*, Auto">
-                        <Label Grid.Column="0" Text="MIN BOUNTY" TextColor="#C45A1D" FontAttributes="Bold" FontSize="12" VerticalOptions="Center"/>
-                        <Label Grid.Column="1" Text="{Binding MinimumBounty, StringFormat='{0}G'}" TextColor="#E6DCC3" FontAttributes="Bold" FontSize="12" VerticalOptions="Center"/>
-                    </Grid>
+                    <Label Text="Region:" TextColor="#8C8371" FontSize="10" FontAttributes="Bold" Margin="5,0"/>
+                    <Border BackgroundColor="#BF1C1512" Stroke="#BF1C1512" Padding="5,0"><Border.StrokeShape><RoundRectangle CornerRadius="3"/></Border.StrokeShape>
+                        <Entry Placeholder="City, Zone or Tavern" Text="{Binding NewQuestLocation}" TextColor="#D3A052" PlaceholderColor="DimGray" Margin="5,0"/>
+                    </Border>
+
+                    <Label Text="Decree Details:" TextColor="#8C8371" FontSize="10" FontAttributes="Bold" Margin="5,0"/>
+                    <Border BackgroundColor="#BF1C1512" Stroke="#BF1C1512" Padding="5,0"><Border.StrokeShape><RoundRectangle CornerRadius="3"/></Border.StrokeShape>
+                        <Editor Placeholder="Describe the threat..." Text="{Binding NewQuestDescription}" HeightRequest="80" TextColor="#D3A052" PlaceholderColor="DimGray" Margin="5,0"/>
+                    </Border>
+
+                    <Label Text="Bounty Reward (G):" TextColor="#8C8371" FontSize="10" FontAttributes="Bold" Margin="5,0"/>
+                    <Border BackgroundColor="#BF1C1512" Stroke="#BF1C1512" Padding="5,0"><Border.StrokeShape><RoundRectangle CornerRadius="3"/></Border.StrokeShape>
+                        <Entry Placeholder="1000" Text="{Binding NewQuestBounty}" Keyboard="Numeric" TextColor="#2A1F1A" PlaceholderColor="DimGray" Margin="5,0"/>
+                    </Border>
                     
-                    <Slider Minimum="0" Maximum="5000" Value="{Binding MinimumBounty}" MinimumTrackColor="#3B82F6" MaximumTrackColor="#E6DCC3" />
+                    <Button Text="ISSUE DECREE" Command="{Binding PostQuestCommand}" BackgroundColor="#C45A1D" TextColor="#1C1512" FontAttributes="Bold" CornerRadius="5" Margin="0,15,0,5"/>
+                    <Label Text="DEATH DOES NOT CANCEL DEBT" TextColor="#A63A24" FontSize="10" HorizontalOptions="Center" FontAttributes="Italic" Opacity="0.8"/>
                 </VerticalStackLayout>
             </Border>
+        </Grid>
 
-            <Grid Grid.Row="1" ColumnDefinitions="Auto, Auto, *" ColumnSpacing="15" Margin="0,0,0,15">
+        <Grid ZIndex="20" IsVisible="{Binding IsDetailsVisible}" BackgroundColor="#A6000000">
+            
+            <Grid.GestureRecognizers><TapGestureRecognizer Command="{Binding CloseDetailsCommand}"/></Grid.GestureRecognizers>
+            
+            <Border WidthRequest="320" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#E6DCC3" Stroke="#C45A1D" StrokeThickness="2" Padding="20">
                 
-                <VerticalStackLayout Grid.Column="0" Spacing="4">
-                    <Label Text="General Quests" TextColor="#C45A1D" FontAttributes="Bold" FontSize="14" />
-                    <BoxView HeightRequest="2" Color="#C45A1D" CornerRadius="1" />
-                </VerticalStackLayout>
-
-                <VerticalStackLayout Grid.Column="1" Spacing="4">
-                    <Label Text="My Posted Quests" TextColor="#8C8371" FontAttributes="Bold" FontSize="14" />
-                </VerticalStackLayout>
+                <Border.GestureRecognizers><TapGestureRecognizer /></Border.GestureRecognizers>
+                <Border.StrokeShape><RoundRectangle CornerRadius="5" /></Border.StrokeShape>
+                <Border.Shadow><Shadow Brush="Black" Offset="0,4" Opacity="0.6" /></Border.Shadow>
                 
-                <BoxView Grid.ColumnSpan="3" HeightRequest="1" Color="#8C8371" Opacity="0.3" VerticalOptions="End" />
-            </Grid>
+                <VerticalStackLayout Spacing="10">
+                    <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,10">
+                        <Label Grid.Column="0" Text="{Binding SelectedQuest.Id, StringFormat='CONTRACT NO. {0}'}" TextColor="#8C8371" FontSize="12" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Button Grid.Column="1" Text="✕" Command="{Binding CloseDetailsCommand}" BackgroundColor="Transparent" TextColor="#A63A24" FontSize="16" FontAttributes="Bold" CornerRadius="10" HeightRequest="30" WidthRequest="30" Padding="0" VerticalOptions="Center"/>
+                    </Grid>
+                    
+                    <Label Text="OFFICIAL CONTRACT" TextColor="#D3A052" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" CharacterSpacing="1"/>
+                    <Label Text="{Binding SelectedQuest.Title}" TextColor="#2A1F1A" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center" TextTransform="Uppercase" CharacterSpacing="-1" LineBreakMode="WordWrap" HorizontalTextAlignment="Center"/>
+                    <Label Text="💀" FontSize="24" HorizontalOptions="Center" TextColor="#A63A24"/>
 
-            <CollectionView Grid.Row="2" ItemsSource="{Binding AvailableQuests}">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="15" VerticalItemSpacing="15" />
-                </CollectionView.ItemsLayout>
-
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Border BackgroundColor="#DAC7A7" Stroke="Transparent" Padding="12">
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="2" />
-                            </Border.StrokeShape>
-                            <Border.Shadow>
-                                <Shadow Brush="Black" Offset="0,2" Opacity="0.2" />
-                            </Border.Shadow>
-                            
-                            <VerticalStackLayout Spacing="5">
-                                <Grid ColumnDefinitions="*, Auto">
-                                    <Label Grid.Column="0" Text="ODD GUILD" TextColor="#8C8371" FontSize="10" FontAttributes="Bold" />
-                                    <Label Grid.Column="1" Text="{Binding Id, StringFormat='NO. {0}'}" TextColor="#8C8371" FontSize="10" />
-                                </Grid>
-
-                                <BoxView HeightRequest="1" Color="#8C8371" Opacity="0.3" Margin="0,5" />
-
-                                <Label Text="{Binding Type}" TextColor="#4A3F35" FontSize="12" FontAttributes="Bold" />
-                                <Label Text="{Binding Title}" TextColor="#A63A24" FontSize="14" FontAttributes="Bold" />
-
-                                <Label Text="☕" FontSize="30" HorizontalOptions="Center" Margin="0,10" />
-
-                                <Label Text="{Binding Description}" TextColor="#4A3F35" FontSize="10" FontAttributes="Italic" LineBreakMode="WordWrap" />
-
-                                <BoxView HeightRequest="1" Color="#8C8371" Opacity="0.3" Margin="0,5" />
-
-                                <Label Text="{Binding Bounty, StringFormat='{0} G'}" TextColor="#2A1F1A" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" />
-                                <Label Text="💀" FontSize="12" HorizontalOptions="Center" />
+                    <BoxView HeightRequest="2" Color="#C45A1D" Margin="0,10"/>
+                    
+                    <Border BackgroundColor="#DAC7A7" Stroke="Transparent" Padding="15">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="5"/></Border.StrokeShape>
+                        <Grid ColumnDefinitions="*, *">
+                            <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                <Label Text="Location:" TextColor="#8C8371" FontSize="10" FontAttributes="Bold"/>
+                                <Label Text="{Binding SelectedQuest.Location}" TextColor="#2A1F1A" FontSize="12" LineBreakMode="WordWrap"/>
                             </VerticalStackLayout>
-                        </Border>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                            <VerticalStackLayout Grid.Column="1" Spacing="2" HorizontalOptions="End">
+                                <Label Text="Reward:" TextColor="#8C8371" FontSize="10" FontAttributes="Bold"/>
+                                <Label Text="{Binding SelectedQuest.Bounty, StringFormat='{0} G'}" TextColor="#2A1F1A" FontSize="16" FontAttributes="Bold"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
 
+                    <Label Text="Task Details" TextColor="#4A3F35" FontSize="16" FontAttributes="Bold" Margin="0,5,0,0"/>
+                    <Label Text="{Binding SelectedQuest.Description}" TextColor="#4A3F35" FontSize="13" FontAttributes="Italic" LineBreakMode="WordWrap"/>
+                    
+                    <Label Text="💀" FontSize="24" HorizontalOptions="Center" TextColor="#A63A24" Margin="0,15,0,10"/>
+                    <Button Text="BIND CONTRACT" BackgroundColor="#3B82F6" TextColor="White" FontAttributes="Bold" CornerRadius="5"/>
+                    <Label Text="FAIL AT YOUR OWN PERIL. NO REFUNDS" TextColor="#A63A24" FontSize="10" HorizontalOptions="Center" FontAttributes="Italic"/>
+                </VerticalStackLayout>
+            </Border>
         </Grid>
     </Grid>
 </ContentPage>
