@@ -81,7 +81,7 @@
                 <Grid Grid.Row="1" ColumnDefinitions="Auto, Auto, Auto, *" ColumnSpacing="15" Margin="0,15,0,15">
                     <VerticalStackLayout Grid.Column="0" Spacing="4">
                         <VerticalStackLayout.GestureRecognizers><TapGestureRecognizer Command="{Binding ShowAllQuestsCommand}" /></VerticalStackLayout.GestureRecognizers>
-                        <Label Text="all quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
+                        <Label Text="All Quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsAllTabActive}" Value="True"><Setter Property="TextColor" Value="#C45A1D" /></DataTrigger>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsAllTabActive}" Value="False"><Setter Property="TextColor" Value="#8C8371" /></DataTrigger>
@@ -92,7 +92,7 @@
 
                     <VerticalStackLayout Grid.Column="1" Spacing="4">
                         <VerticalStackLayout.GestureRecognizers><TapGestureRecognizer Command="{Binding ShowGeneralQuestsCommand}" /></VerticalStackLayout.GestureRecognizers>
-                        <Label Text="general quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
+                        <Label Text="General Quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsGeneralTabActive}" Value="True"><Setter Property="TextColor" Value="#C45A1D" /></DataTrigger>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsGeneralTabActive}" Value="False"><Setter Property="TextColor" Value="#8C8371" /></DataTrigger>
@@ -103,7 +103,7 @@
 
                     <VerticalStackLayout Grid.Column="2" Spacing="4">
                         <VerticalStackLayout.GestureRecognizers><TapGestureRecognizer Command="{Binding ShowMyQuestsCommand}" /></VerticalStackLayout.GestureRecognizers>
-                        <Label Text="my quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
+                        <Label Text="My Quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsMyTabActive}" Value="True"><Setter Property="TextColor" Value="#C45A1D" /></DataTrigger>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsMyTabActive}" Value="False"><Setter Property="TextColor" Value="#8C8371" /></DataTrigger>
