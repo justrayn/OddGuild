@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:OddGuild.ViewModels"
+             xmlns:components="clr-namespace:OddGuild.Views.Components"
              x:Class="OddGuild.Views.QuestPage"
              Title="Quests"
              Shell.NavBarIsVisible="False"
@@ -23,29 +24,7 @@
     <Grid>
         <Grid RowDefinitions="Auto, *" ZIndex="0">
             
-            <Grid Grid.Row="0" BackgroundColor="#2D1E16" Padding="20, 25, 20, 25">
-                
-                <Grid HorizontalOptions="Start" VerticalOptions="Start">
-                    <BoxView WidthRequest="22" HeightRequest="3" Color="#7A4B29" CornerRadius="1.5" HorizontalOptions="Start" VerticalOptions="Start"/>
-                    <BoxView WidthRequest="3" HeightRequest="22" Color="#7A4B29" CornerRadius="1.5" HorizontalOptions="Start" VerticalOptions="Start"/>
-                </Grid>
-
-                <Grid HorizontalOptions="End" VerticalOptions="Start">
-                    <BoxView WidthRequest="22" HeightRequest="3" Color="#7A4B29" CornerRadius="1.5" HorizontalOptions="End" VerticalOptions="Start"/>
-                    <BoxView WidthRequest="3" HeightRequest="22" Color="#7A4B29" CornerRadius="1.5" HorizontalOptions="End" VerticalOptions="Start"/>
-                </Grid>
-
-                <VerticalStackLayout HorizontalOptions="Center" Spacing="-5" VerticalOptions="Center">
-                    <Label Text="ODD" TextColor="#D3A052" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" CharacterSpacing="2" />
-                    <Label Text="GUILD" TextColor="#D3A052" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" CharacterSpacing="2" />
-                    
-                    <Grid ColumnDefinitions="Auto, Auto, Auto" ColumnSpacing="15" Margin="0,15,0,0" HorizontalOptions="Center" VerticalOptions="Center">
-                        <BoxView Grid.Column="0" WidthRequest="60" HeightRequest="2" Color="#C45A1D" VerticalOptions="Center" />
-                        <Label Grid.Column="1" Text="TAGLINE" TextColor="#C45A1D" FontSize="12" FontAttributes="Bold" CharacterSpacing="1" VerticalOptions="Center" Margin="0,0,0,2"/>
-                        <BoxView Grid.Column="2" WidthRequest="60" HeightRequest="2" Color="#C45A1D" VerticalOptions="Center" />
-                    </Grid>
-                </VerticalStackLayout>
-            </Grid>
+            <components:HeaderView Grid.Row="0" />
 
             <Grid Grid.Row="1" Padding="15, 20, 15, 0">
                 <Grid.RowDefinitions>
@@ -81,7 +60,7 @@
                 <Grid Grid.Row="1" ColumnDefinitions="Auto, Auto, Auto, *" ColumnSpacing="15" Margin="0,15,0,15">
                     <VerticalStackLayout Grid.Column="0" Spacing="4">
                         <VerticalStackLayout.GestureRecognizers><TapGestureRecognizer Command="{Binding ShowAllQuestsCommand}" /></VerticalStackLayout.GestureRecognizers>
-                        <Label Text="All Quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
+                        <Label Text="all quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsAllTabActive}" Value="True"><Setter Property="TextColor" Value="#C45A1D" /></DataTrigger>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsAllTabActive}" Value="False"><Setter Property="TextColor" Value="#8C8371" /></DataTrigger>
@@ -92,7 +71,7 @@
 
                     <VerticalStackLayout Grid.Column="1" Spacing="4">
                         <VerticalStackLayout.GestureRecognizers><TapGestureRecognizer Command="{Binding ShowGeneralQuestsCommand}" /></VerticalStackLayout.GestureRecognizers>
-                        <Label Text="General Quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
+                        <Label Text="general quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsGeneralTabActive}" Value="True"><Setter Property="TextColor" Value="#C45A1D" /></DataTrigger>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsGeneralTabActive}" Value="False"><Setter Property="TextColor" Value="#8C8371" /></DataTrigger>
@@ -103,7 +82,7 @@
 
                     <VerticalStackLayout Grid.Column="2" Spacing="4">
                         <VerticalStackLayout.GestureRecognizers><TapGestureRecognizer Command="{Binding ShowMyQuestsCommand}" /></VerticalStackLayout.GestureRecognizers>
-                        <Label Text="My Quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
+                        <Label Text="my quests" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsMyTabActive}" Value="True"><Setter Property="TextColor" Value="#C45A1D" /></DataTrigger>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsMyTabActive}" Value="False"><Setter Property="TextColor" Value="#8C8371" /></DataTrigger>

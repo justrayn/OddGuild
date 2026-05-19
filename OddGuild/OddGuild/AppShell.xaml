@@ -6,18 +6,32 @@
     xmlns:views="clr-namespace:OddGuild.Views"
     Title="OddGuild"
     
-    Shell.TabBarBackgroundColor="#1C1512"
+    Shell.TabBarBackgroundColor="#2D1E16"
     Shell.TabBarTitleColor="#C45A1D"
-    Shell.TabBarUnselectedColor="Gray">
+    Shell.TabBarUnselectedColor="#8C8371">
+
+    <Shell.Resources>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarBackgroundColor" Value="#2D1E16" />
+        </Style>
+    </Shell.Resources>
 
     <TabBar>
         
-        <Tab Title="Home">
-            <ShellContent ContentTemplate="{DataTemplate views:MainPage}" />
+        <Tab Title="Home" Icon="icon_home.png">
+            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
         </Tab>
 
-        <Tab Title="Quests">
+        <Tab Title="Quests" Icon="icon_quests.png">
             <ShellContent ContentTemplate="{DataTemplate views:QuestPage}" />
+        </Tab>
+
+        <Tab Title="Party" Icon="icon_party.png">
+            <ShellContent ContentTemplate="{DataTemplate views:PartyPage}" />
+        </Tab>
+
+        <Tab Title="Profile" Icon="icon_profile.png">
+            <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" />
         </Tab>
 
     </TabBar>
